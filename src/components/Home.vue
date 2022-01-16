@@ -8,9 +8,11 @@
                         :style="`backgroundImage: url(${photo.urls.regular})`"
                     ></div>
 
-                    <div class="photo_details">
+                    <div class="photo_details" v-if="!isLoading">
                         <h1 class="name">{{ photo.user.name }}</h1>
-                        <p class="location">{{ photo.user.location }}</p>
+                        <p class="location">
+                            {{ photo.user.location }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -29,7 +31,7 @@ export default {
     },
 
     computed: {
-        ...mapGetters(["getSearchedPhotos", "getAllPhotosList"]),
+        ...mapGetters(["getSearchedPhotos", "getAllPhotosList", "isLoading"]),
     },
 };
 </script>
@@ -49,7 +51,7 @@ export default {
 
     & .image_container_bg {
         position: relative;
-        height: 300px;
+        height: 280px;
         width: 100%;
         border-radius: 5px;
         background-size: cover;
@@ -57,11 +59,17 @@ export default {
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
         transition: 0.3s;
 
+        // &:nth-child(2n + 1) {
+        //     height: 200px;
+        // }
+
         &::before {
             background: linear-gradient(
                 to bottom,
-                rgba(54, 46, 46, 0.09),
-                rgba(54, 46, 46, 0.8)
+                rgba(54, 46, 46, 0.125),
+                rgba(54, 46, 46, 0.35),
+                rgba(54, 46, 46, 0.625),
+                rgba(54, 46, 46, 0.825)
             );
             position: absolute;
             content: "";
@@ -77,13 +85,14 @@ export default {
 
     &:hover > .image_container_bg {
         transform: scale(1.05);
+        cursor: pointer;
     }
 
     .photo_details {
         position: absolute;
         bottom: 1.5rem;
         left: 1rem;
-        color: #fff;
+        color: #f2f2f2;
 
         & .name {
             font-size: 1rem;
@@ -91,7 +100,8 @@ export default {
         }
 
         & .location {
-            font-size: 0.675rem;
+            font-size: 0.75rem;
+            text-transform: capitalize;
         }
     }
 }

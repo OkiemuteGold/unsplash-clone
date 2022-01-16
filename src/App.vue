@@ -17,9 +17,10 @@ export default {
         Home,
         Header,
     },
+
     data() {
         return {
-            query: "african",
+            query: "African",
         };
     },
 

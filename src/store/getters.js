@@ -5,3 +5,7 @@ export const getSearchedPhotos = (state) => {
 export const getAllPhotosList = (state) => {
     return state.allPhotosList;
 }
+
+export const isLoading = (state) => {
+    return state.isLoading;
+}
