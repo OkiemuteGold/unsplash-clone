@@ -103,7 +103,7 @@ export default {
                 this.id = otherParams.id;
             }
 
-            console.log(item, otherParams, this.expandedImgAlt, bi);
+            // console.log(item, otherParams, this.expandedImgAlt, bi);
         },
 
         closeModal: function () {

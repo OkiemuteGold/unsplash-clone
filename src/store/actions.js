@@ -15,7 +15,7 @@ export const searchPhotos = async ({ commit, state }, query) => {
 
     await axios.get(url, apiArgument).then(response => {
         commit("SEARCHED_PHOTOS", response.data.results);
-        console.log(response);
+        // console.log(response);
 
     }).catch(err => {
         console.log(err);
@@ -32,7 +32,7 @@ export const fetchAllPhotosList = async ({ commit, state }) => {
 
     await axios.get(url, apiArgument).then(response => {
         commit("ALL_PHOTOS_LIST", response.data);
-        console.log(response);
+        // console.log(response);
 
     }).catch(err => {
         console.log(err);
