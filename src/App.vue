@@ -50,6 +50,8 @@ body {
 }
 
 * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -63,5 +65,26 @@ body {
 img {
     max-width: 100%;
     height: auto;
+}
+
+svg {
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
+}
+
+img,
+svg,
+.close_image,
+.image_container_bg {
+    -o-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+button {
+    border: none;
+    background: none;
 }
 </style>

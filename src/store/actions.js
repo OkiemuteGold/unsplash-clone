@@ -42,3 +42,7 @@ export const fetchAllPhotosList = async ({ commit, state }) => {
 export const saveAllPhotosList = ({ commit }, data) => {
     commit("ALL_PHOTOS_LIST", data);
 }
+
+export const closeModal = ({ commit }) => {
+    commit("CLOSE_MODAL");
+};

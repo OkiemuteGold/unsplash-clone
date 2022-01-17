@@ -4,7 +4,7 @@ import API_KEY from "../API_KEY";
 export default {
     baseURL: "https://api.unsplash.com",
     apiKey: API_KEY.key,
-    isLoading: false,
+    closeModal: false,
     searchedPhotos: [],
     allPhotosList: [],
 }

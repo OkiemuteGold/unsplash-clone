@@ -6,6 +6,6 @@ export const getAllPhotosList = (state) => {
     return state.allPhotosList;
 }
 
-export const isLoading = (state) => {
-    return state.isLoading;
+export const closeModal = (state) => {
+    return state.closeModal;
 }
