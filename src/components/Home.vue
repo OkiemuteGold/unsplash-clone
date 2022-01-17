@@ -196,10 +196,10 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     margin: auto;
-    background: rgba(0, 0, 0, 0.375);
+    background: rgba(0, 0, 0, 0.45);
     overflow: hidden;
 }
 
@@ -252,14 +252,19 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 50%;
         padding: 5px;
         background: transparent;
         color: #fff;
+        border-radius: 50%;
         cursor: pointer;
 
         &:hover {
             background: rgba(0, 0, 0, 0.15);
+        }
+
+        & svg {
+            height: 1.125rem;
+            width: 1.125rem;
         }
     }
 }
