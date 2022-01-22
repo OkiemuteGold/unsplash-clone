@@ -6,6 +6,10 @@ export const getAllPhotosList = (state) => {
     return state.allPhotosList;
 }
 
+export const getErrorCode = state => {
+    return state.errorCode;
+}
+
 export const closeModal = (state) => {
     return state.closeModal;
 }

@@ -11,13 +11,17 @@
                         :style="`backgroundImage: url(${photo.urls.regular})`"
                         title="View photo"
                         v-if="photo"
+                        data-bs-toggle="modal"
+                        :data-bs-target="`#MY${photo.id}`"
                     ></div>
 
-                    <div
-                        class="image_container_bg"
-                        style="background: #bbb"
-                        v-else
-                    ></div>
+                    <Modal
+                        :idModal="`MY${photo.id}`"
+                        :expandedImgSrc="photo.urls.regular"
+                        :expandedImgAlt="photo.alt_description"
+                        :author="photo.user.name"
+                        :location="photo.user.location"
+                    />
 
                     <div class="photo_details">
                         <h1 class="name">{{ photo.user.name }}</h1>
@@ -28,7 +32,7 @@
                 </div>
             </div>
 
-            <div v-if="!invalidInput">
+            <!-- <div v-if="!invalidInput">
                 <div class="overlay"></div>
                 <div class="expanded_image_wrapper">
                     <div class="close_image" @click="closeExpandedPhoto()">
@@ -60,22 +64,24 @@
                         <p>{{ location }}</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import Modal from "./Modal.vue";
 
 export default {
+    components: { Modal },
     data() {
         return {
             expandedImgSrc: "",
-            expandedImgAlt: "",
-            author: "",
-            location: "",
-            id: "",
+            // expandedImgAlt: "",
+            // author: "",
+            // location: "",
+            // id: "",
         };
     },
 
@@ -97,23 +103,23 @@ export default {
 
             if (item.className === "image_container_bg") {
                 this.expandedImgSrc = bi;
-                this.expandedImgAlt = otherParams.alt_description;
-                this.author = otherParams.user.name;
-                this.location = otherParams.user.location;
-                this.id = otherParams.id;
+                // this.expandedImgAlt = otherParams.alt_description;
+                // this.author = otherParams.user.name;
+                // this.location = otherParams.user.location;
+                // this.id = otherParams.id;
             }
 
             // console.log(item, otherParams, this.expandedImgAlt, bi);
         },
 
-        closeModal: function () {
-            this.$store.dispatch("closeModal");
-        },
+        // closeModal: function () {
+        //     this.$store.dispatch("closeModal");
+        // },
 
-        closeExpandedPhoto() {
-            this.expandedImgSrc = "";
-            this.closeModal();
-        },
+        // closeExpandedPhoto() {
+        //     this.expandedImgSrc = "";
+        //     this.closeModal();
+        // },
     },
 };
 </script>

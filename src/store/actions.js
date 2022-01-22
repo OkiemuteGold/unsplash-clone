@@ -19,6 +19,7 @@ export const searchPhotos = async ({ commit, state }, query) => {
 
     }).catch(err => {
         console.log(err);
+        commit("ERROR_CODE", err.code);
     });
 }
 
