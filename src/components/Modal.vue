@@ -8,37 +8,44 @@
         :aria-labelledby="`${idModal}Label`"
         aria-hidden="true"
     >
-        <div class="close_modal">
-            <button
-                type="button"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-                title="close"
-            >
-                <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fas"
-                    data-icon="times"
-                    class="svg-inline--fa fa-times fa-w-11 close_image_svg"
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 352 512"
-                >
-                    <path
-                        fill="currentColor"
-                        d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                    ></path>
-                </svg>
-            </button>
-        </div>
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="expanded_image_wrapper">
-                <img :src="expandedImgSrc" :alt="expandedImgAlt" />
+            <div class="modal-content">
+                <div class="modal-body p-0 p-lg-3 close_modal">
+                    <button
+                        type="button"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        title="close"
+                        class="close_image_btn"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            data-prefix="fas"
+                            data-icon="times"
+                            class="svg-inline--fa fa-times fa-w-11"
+                            role="img"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 352 512"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                            ></path>
+                        </svg>
+                    </button>
 
-                <div class="expanded_image_footer" v-if="expandedImgSrc">
-                    <h2 v-if="author">{{ author }}</h2>
-                    <p v-if="location">{{ location }}</p>
+                    <div class="expanded_image_wrapper">
+                        <img :src="expandedImgSrc" :alt="expandedImgAlt" />
+
+                        <div
+                            class="expanded_image_footer"
+                            v-if="expandedImgSrc"
+                        >
+                            <h2 v-if="author">{{ author }}</h2>
+                            <p v-if="location">{{ location }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,44 +69,53 @@ export default {
     overflow-x: hidden;
 }
 
+.modal-content {
+    background: transparent;
+    border: none;
+}
+
 .close_modal {
     position: relative;
 }
 
-.close_modal svg {
+.close_modal .close_image_btn {
     position: absolute;
-    // top: 70px;
-    top: 300%;
+    top: -35px;
     left: 0;
     right: 0;
-    height: 2.15rem;
-    width: 2.15rem;
-    margin: auto;
-    padding: 5px;
-    cursor: pointer;
     margin: auto;
     background: transparent;
-    color: #fff;
     border-radius: 50%;
 
     &:hover {
-        background: rgba(0, 0, 0, 0.2);
-        transform: scale(0.85);
+        background: rgba(0, 0, 0, 0.25);
+    }
+
+    & svg {
+        height: 1.95rem;
+        width: 1.95rem;
+        padding: 3px;
+        color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    &:hover svg {
+        transform: scale(0.825);
     }
 }
 
 .expanded_image_wrapper {
     height: 400px;
-    width: 700px;
+    width: 100%;
     margin: 0 auto;
+    padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     & img {
-        height: 100%;
-        min-height: 370px;
-        width: 100%;
+        min-height: 300px;
         border-radius: 5px 5px 0 0;
         -o-object-fit: cover;
         object-fit: cover;
@@ -126,28 +142,24 @@ export default {
     }
 }
 
-@media screen and (min-width: 425px) {
-    .expanded_image_wrapper {
-        padding: 10px;
-    }
-}
-
 @media screen and (min-width: 768px) {
-    .close_modal svg {
-        left: 75%;
+    .close_modal .close_image_btn {
+        top: -70px;
+        left: 100%;
     }
+
     .expanded_image_wrapper img {
         min-height: 100%;
     }
 }
 
 @media screen and (min-width: 1440px) {
-    .close_modal svg {
-        left: 800px;
+    .close_modal .close_image_btn {
+        top: -25%;
     }
 
     .expanded_image_wrapper img {
-        min-height: 480px;
+        min-height: 65vh;
     }
 }
 </style>
