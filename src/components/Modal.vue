@@ -54,10 +54,6 @@ export default {
         "author",
         "location",
     ],
-
-    mounted() {
-        console.log(this.idModal);
-    },
 };
 </script>
 
@@ -72,21 +68,23 @@ export default {
 
 .close_modal svg {
     position: absolute;
-    top: 55px;
+    // top: 70px;
+    top: 300%;
     left: 0;
     right: 0;
-    height: 2rem;
-    width: 2rem;
+    height: 2.15rem;
+    width: 2.15rem;
     margin: auto;
     padding: 5px;
     cursor: pointer;
     margin: auto;
-    background: rgba(0, 0, 0, 0.3);
+    background: transparent;
     color: #fff;
     border-radius: 50%;
 
     &:hover {
-        background: rgba(0, 0, 0, 0.15);
+        background: rgba(0, 0, 0, 0.2);
+        transform: scale(0.85);
     }
 }
 
@@ -105,8 +103,8 @@ export default {
         border-radius: 5px 5px 0 0;
         -o-object-fit: cover;
         object-fit: cover;
-        -o-object-position: 49%;
-        object-position: 49%;
+        -o-object-position: 48%;
+        object-position: 48%;
     }
 
     & .expanded_image_footer {
@@ -130,26 +128,26 @@ export default {
 
 @media screen and (min-width: 425px) {
     .expanded_image_wrapper {
-        height: 400px;
         padding: 10px;
-
-        & img {
-            min-height: 400px;
-        }
     }
 }
 
 @media screen and (min-width: 768px) {
+    .close_modal svg {
+        left: 75%;
+    }
     .expanded_image_wrapper img {
         min-height: 100%;
     }
 }
 
 @media screen and (min-width: 1440px) {
-    // .expanded_image_wrapper {
-    //     max-height: 440px;
-    //     max-width: 700px;
-    //     padding: 5px;
-    // }
+    .close_modal svg {
+        left: 800px;
+    }
+
+    .expanded_image_wrapper img {
+        min-height: 480px;
+    }
 }
 </style>
