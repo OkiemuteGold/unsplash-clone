@@ -36,7 +36,11 @@
                     </button>
 
                     <div class="expanded_image_wrapper">
-                        <img :src="expandedImgSrc" :alt="expandedImgAlt" />
+                        <img
+                            :src="expandedImgSrc"
+                            :alt="expandedImgAlt"
+                            class="image"
+                        />
 
                         <div
                             class="expanded_image_footer"
@@ -114,7 +118,7 @@ export default {
     flex-direction: column;
     justify-content: center;
 
-    & img {
+    & .image {
         min-height: 300px;
         border-radius: 5px 5px 0 0;
         -o-object-fit: cover;
@@ -148,7 +152,7 @@ export default {
         left: 100%;
     }
 
-    .expanded_image_wrapper img {
+    .expanded_image_wrapper .image {
         min-height: 100%;
     }
 }
@@ -158,7 +162,7 @@ export default {
         top: -25%;
     }
 
-    .expanded_image_wrapper img {
+    .expanded_image_wrapper .image {
         min-height: 65vh;
     }
 }
