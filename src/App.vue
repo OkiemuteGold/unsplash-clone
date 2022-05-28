@@ -20,22 +20,20 @@ export default {
 
     data() {
         return {
-            query: "African",
+            query: "african",
         };
     },
 
     methods: {
         ...mapActions([
             "searchPhotos",
-            "fetchAllPhotosList",
-            "saveAllPhotosList",
+            // "fetchAllPhotosList",
         ]),
     },
 
     mounted() {
         this.searchPhotos(this.query);
-        this.fetchAllPhotosList();
-        this.saveAllPhotosList();
+        // this.fetchAllPhotosList();
     },
 };
 </script>
@@ -73,10 +71,12 @@ svg {
     vertical-align: middle;
 }
 
+a,
 img,
 svg,
 .close_image,
-.image_container_bg {
+.image_container_bg,
+.download_image_link {
     -o-transition: 0.3s;
     -moz-transition: 0.3s;
     -webkit-transition: 0.3s;

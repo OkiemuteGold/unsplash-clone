@@ -5,7 +5,6 @@ export default {
     baseURL: "https://api.unsplash.com",
     apiKey: API_KEY.key,
     searchedPhotos: [],
-    allPhotosList: [],
     closeModal: false,
     errorCode: null,
 }

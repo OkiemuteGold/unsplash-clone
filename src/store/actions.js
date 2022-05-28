@@ -10,7 +10,7 @@ export const searchPhotos = async ({ commit, state }, query) => {
 
     let apiArgument = {
         orderBy: 'latest',
-        count: 8,
+        count: 10,
     };
 
     await axios.get(url, apiArgument).then(response => {
@@ -23,26 +23,22 @@ export const searchPhotos = async ({ commit, state }, query) => {
     });
 }
 
-export const fetchAllPhotosList = async ({ commit, state }) => {
-    let url = `${state.baseURL}/photos?page=1&client_id=${state.apiKey}`
+// export const fetchAllPhotosList = async ({ commit, state }) => {
+//     let url = `${state.baseURL}/photos?page=1&client_id=${state.apiKey}`
 
-    let apiArgument = {
-        orderBy: 'latest',
-        perPage: 10,
-    };
+//     let apiArgument = {
+//         orderBy: 'latest',
+//         perPage: 10,
+//     };
 
-    await axios.get(url, apiArgument).then(response => {
-        commit("ALL_PHOTOS_LIST", response.data);
-        // console.log(response);
+//     await axios.get(url, apiArgument).then(response => {
+//         commit("ALL_PHOTOS_LIST", response.data);
+//         console.log(response);
 
-    }).catch(err => {
-        console.log(err);
-    });
-}
-
-export const saveAllPhotosList = ({ commit }, data) => {
-    commit("ALL_PHOTOS_LIST", data);
-}
+//     }).catch(err => {
+//         console.log(err);
+//     });
+// }
 
 export const closeModal = ({ commit }) => {
     commit("CLOSE_MODAL");
