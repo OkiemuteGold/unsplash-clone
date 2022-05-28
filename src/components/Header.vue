@@ -104,7 +104,7 @@ export default {
                     if (this.searchPhotos) {
                         this.showResultText = !this.showResultText;
                     }
-                }, 3000);
+                }, 1500);
             }
         },
 
@@ -114,6 +114,7 @@ export default {
 
         backToSearch() {
             this.closeModal();
+            this.input = "";
             this.showResultText = true;
 
             /* return all to origin state */
